@@ -1,0 +1,14 @@
+examples
+models
+nnlib
+
+*.zip
+*.mp4
+*.jpg
+*.png
+*.pyc
+*.so
+*.pkl
+*.caffemodel 
+__pycache__
+.ipynb_checkpoints
