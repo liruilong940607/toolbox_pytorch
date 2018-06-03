@@ -53,3 +53,7 @@ merge `make.sh` to `setup.py`.
     - [Docs: Packaging and distributing projects](https://packaging.python.org/guides/distributing-packages-using-setuptools/#packages)
     - [Demo: neuralgym](https://github.com/JiahuiYu/neuralgym/blob/master/setup.py)
     - [Demo: pytorch official](https://github.com/pytorch/pytorch/blob/master/setup.py)
+    
+- Borrow some codes from:
+    - [pose-ae-train](https://github.com/umich-vl/pose-ae-train.git)
+    - [Detectron.pytorch](https://github.com/roytseng-tw/Detectron.pytorch.git)
