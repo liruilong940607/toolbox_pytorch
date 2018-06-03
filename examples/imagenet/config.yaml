@@ -1,0 +1,42 @@
+NAME: 'imagenet_minitrain_resnet50_reproducing'
+
+DATASET:
+    MEAN: [0.485, 0.456, 0.406]
+    STD: [0.229, 0.224, 0.225]
+    TRAINSETDIR: '/home/dalong/data/kaggle/ImageNet/ILSVRC/Data/CLS-LOC/minitrain'
+    VALSETDIR: '/home/dalong/data/kaggle/ImageNet/ILSVRC/Data/CLS-LOC/val'
+
+NET:
+    INPUT_RES: 224
+
+AUG:
+    FILP_ON: true
+
+INIT: ~
+
+EVAL:
+    RESIZE_RES: 256
+    INTERVAL: 1 # epoch
+    FLIP_ON: true
+    SUBSET: 500
+
+SOLVER:
+  WORKERS: 16
+  IMG_PER_GPU: 64
+  GPU_IDS: [0] # IMG_PER_GPU * len(GPU_IDS) 
+  LR: 0.0001
+  LR_SCHEDULE: 'standard'
+  OPTIMIZER: 'Adam' # Adam | SGD
+  MOMENTUM: 0.9
+  WEIGHTDECAY: 0.0005
+
+LOGS:
+  PRINT_FREQ: 10
+  SNAPSHOT_FREQ: 500
+  SNAPSHOT_MAXFILES: NOTIMPLEMENT
+  SNAPSHOT_DIR: 'snapshot'
+  LOG_DIR: 'logs'
+  LOG_SHUTIL_ON: true
+  LOG_SHUTIL_IGNORELIST: ['*.zip','*.mp4','*.jpg','*.png','*.pyc','*.so','*.pkl','*.caffemodel', '__pycache__','snapshot','logs']
+  LOG_SHUTIL_IGNOREFILE: '/dalong/data/toolbox_pytorch/.gitignore'
+

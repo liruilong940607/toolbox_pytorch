@@ -1,4 +1,6 @@
-examples
+logs
+snapshot
+results
 
 build
 dist
@@ -11,6 +13,7 @@ dist
 *.pyc
 *.o
 *.so
+*.t7
 *.pkl
 *.caffemodel 
 __pycache__

@@ -1,0 +1,59 @@
+NAME: 'affine_withkpt_fullinit'
+ALIGN_OPS: 'AffineAlign' # RoIAlign | AffineAlign
+EXTRA_FEATURES: true
+
+NET:
+  TRAIN:
+    INPUT_RES: 512
+    S1_OUT_RES: 128
+    TEMPLATE_SIZE: 64
+    ALIGN_SIZE: 64
+    S2_OUT_RES: 64
+
+  TEST:
+    INPUT_RES: 512
+    S1_OUT_RES: 128
+    TEMPLATE_SIZE: 64
+    ALIGN_SIZE: 100
+    S2_OUT_RES: 100
+
+AUG:
+  FLIP_ON: true
+  PREPROCESS_ON: true
+  ANGLE: [-45.0, 45.0]
+  SCALE: [0.5, 2.0]
+  TRANS: [-0.3, 0.3]
+  
+INIT: 'snapshot/v4_embending_epoch4_5000.pkl'
+
+EVAL:
+  INTERVAL: 2 # epoch
+  USE_GT_KEYPOINTS: true
+  FILP_ON: true
+  VIS_ON: false
+  SUBSET: 500
+
+SOLVER:
+  WORKERS: 4
+  IMG_PER_GPU: 4
+  GPU_IDS: [0, 1]
+  ITER_SIZE: 2 # real BATCHSIZE is : IMG_PER_GPU * len(GPU_IDS) * ITER_SIZE
+  LR: 0.0001
+  LR_SCHEDULE: 'standard'
+  OPTIMIZER: 'ADAM' # ADAM | SGD
+  MOMENTUM: 0.9
+  WEIGHTDECAY: 0.0005
+
+LOGS:
+  PRINT_FREQ: 10
+  SNAPSHOT_FREQ: 500
+  SNAPSHOT_MAXFILES: NOTIMPLEMENT
+  SNAPSHOT_DIR: 'snapshot'
+  LOG_DIR: 'logs'
+  LOG_SHUTIL_ON: true
+  # shutil.copytree('./', './logs2', ignore=shutil.ignore_patterns('./logs','*.zip','*.mp4','*.jpg','*.png','__pycache__', '*.pyc'))
+  LOG_SHUTIL_IGNORELIST: ['*.zip','*.mp4','*.jpg','*.png','*.pyc','*.so','*.pkl','*.caffemodel', '__pycache__','snapshot','logs']
+  LOG_SHUTIL_IGNOREFILE: '.gitignore'
+
+
+

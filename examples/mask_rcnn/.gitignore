@@ -1,0 +1,9 @@
+*.zip
+*.mp4
+*.jpg
+*.png
+*.pyc
+*.so
+*.pkl
+*.caffemodel
+__pycache__
