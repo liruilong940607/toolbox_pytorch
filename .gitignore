@@ -1,12 +1,15 @@
 examples
-models
-nnlib
+
+build
+dist
+*.egg-info
 
 *.zip
 *.mp4
 *.jpg
 *.png
 *.pyc
+*.o
 *.so
 *.pkl
 *.caffemodel 
