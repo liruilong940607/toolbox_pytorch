@@ -1,7 +1,7 @@
-# toolbox_pytorch
+# Toolbox_Pytorch
 A toolbox for pytorch users. Especially for computer vision.
 
-## build
+## Build
 ```
 sh make.sh
 python3 setup.py sdist bdist_wheel
@@ -9,9 +9,38 @@ pip install dist/torchlab-0.0.1-cp35-cp35m-linux_x86_64.whl
 rm -r build dist *.egg-info
 ```
 
+## Functions and Modules:
+
+```
+import torchlab
+import torchlab.nnlib
+import torchlab.cvlib
+
+# Loss from 'Associative Embedding: End-to-End Learning for Joint Detection and Grouping' [Arxiv](https://arxiv.org/abs/1611.05424)
+from torchlab.nnlib.AEloss import AElossFunction, AEloss, HeatmapLoss
+
+from torchlab.nnlib.affine_align import templates, templates17to29, Template, PoseAffineTemplate
+from torchlab.nnlib.affine_align import calcAffineMatrix, affine_align, affine_align_gpu
+
+from torchlab.nnlib.parallel import DataParallel
+
+from torchlab.nnlib.roi_xfrom import RoIAlignFunction
+from torchlab.nnlib.roi_xfrom import RoIAlign, RoIAlignAvg, RoIAlignMax
+
+from torchlab.nnlib import cython_bbox
+from torchlab.nnlib import cython_nms
+from torchlab.nnlib.init import XavierFill, MSRAFill
+
+from torchlab.nnlib.resnetXtFPN import *
+from torchlab.nnlib.tools import *
+
+from torchlab.cvlib.tools import *
+from torchlab.cvlib.transforms import *
+```
+
 
 ## TODO:
-modify merge `make.sh` to `setup.py`.
+merge `make.sh` to `setup.py`.
 
 ## Reference
 
